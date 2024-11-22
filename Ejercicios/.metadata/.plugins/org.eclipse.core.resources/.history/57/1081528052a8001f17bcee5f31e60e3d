@@ -1,9 +1,0 @@
-package variables;
-
-public class Pi {
-	public static void main(String[]args) {
-		double PI = 3.14159;
-		
-	}
-
-}
