@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class ProgramaFuncional {
 
     public static void main(String[] args) {
-        final double PROMEDIO_APROBADO = 6.0; // calificacion minima 
+        final Double PROMEDIO_APROBADO = 6.0; // calificacion minima 
         Scanner scanner = new Scanner(System.in);
         Double promedio;
-        Integer aciertos, reactivos; 
+        Integer aciertos;
+        Integer reactivos; 
         String calAprobatoria = "reprobado";
         
         System.out.println("Ingrese el numero de reactivos: " );
