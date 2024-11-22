@@ -29,10 +29,10 @@ public class EJ1 {
 		//Impresion de resultados
 		System.out.println("Los resultados de las operaciones son: Suma: " + sum + ", Resta: " + res+ ", Multiplicacion: " + mult + ", Division: " + div + ", Residuo: " + mod);
 		//Usos de operador logico
-		if(sum == res || sum == mult || sum == div) {
-			System.out.println("El resultafo de dos eperaciones es similar");
+		if(sum == res || res == mult || res == div || res == mod) {
+			System.out.println("El resultado de dos eperaciones es similar");
 		}else {
-			System.out.println("Todas las operaciones tienen resultados diferentes");
+			System.out.println("Todas las operaciones tienen resultados diferentes a la resta");
 		}
 	}
 
