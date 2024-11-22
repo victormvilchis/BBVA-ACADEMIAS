@@ -1,8 +1,3 @@
-/**
- * 
- */
-/**
- * 
- */
-module Ejercicio1 {
+module Mimodulo{
+	java.util.Scanner;
 }
