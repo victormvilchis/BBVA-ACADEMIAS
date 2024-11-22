@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ProgramaFuncional {
 
     public static void main(String[] args) {
-        final double promAprobada = 6.0; // calificacion minima 
+        final double PROMEDIO_APROBADO = 6.0; // calificacion minima 
         Scanner scanner = new Scanner(System.in);
         Double promedio;
         Integer aciertos, reactivos; 
@@ -27,7 +27,7 @@ public class ProgramaFuncional {
         	calAprobatoria = "reprobado";
         } */
         
-        calAprobatoria = promedio >= promAprobada ? "aprobado" : "reprobado";
+        calAprobatoria = promedio >= PROMEDIO_APROBADO ? "aprobado" : "reprobado";
         System.out.println("El numero de reactivos es: " +reactivos);
         System.out.println("La calificación de tu examen fue de: "+ promedio);
         System.out.println("El alumno está " + calAprobatoria);
