@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class Area {
 
+
 	public static void main(String[] args) {
 
 		// SE DEFINE SCANNER
 		Scanner scanner = new Scanner(System.in);
 
 		// SE AGREGAN VARIABLES TIPO WRAPPER
-		Double radius = null;
-		Double height = null;
+		Double radius;
+		Double height;
 		Double volume;
 		Double totalArea;
 		Double lateralArea;
