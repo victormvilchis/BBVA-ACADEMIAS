@@ -41,7 +41,7 @@ public class Calculadora {
 	}
 	
 	public static Double division(Double n1, Double n2) {
-		setResult((n1/n2));
+		setResult((n1 / n2));
 		
 		return getResult();
 	}
