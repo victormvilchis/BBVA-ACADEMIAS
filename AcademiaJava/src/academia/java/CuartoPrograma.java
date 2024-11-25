@@ -15,18 +15,14 @@ public class CuartoPrograma {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Hola, por favor ingresa el radio del cilindro: ");
 		double radioCilindro = Double.parseDouble(scanner.nextLine());
-		
 		System.out.println("Hola, por favor ingresa la altura del cilindro: ");
 		double alturaCilindro = Double.parseDouble(scanner.nextLine());
-		
 		double areaLateral = (2* Math.PI * radioCilindro * alturaCilindro);
 		double aTotal = (areaLateral + 2 * Math.PI * Math.pow(radioCilindro, 2));
-
 		double volumen = (Math.PI * Math.pow(radioCilindro, 2) * alturaCilindro);
-		
 		System.out.println("el area lateral es: " + areaLateral);
 		System.out.println("el area total " + aTotal);
 		System.out.println("el volumen es: " + volumen);
-		
+		scanner.close();
 	}
 }
