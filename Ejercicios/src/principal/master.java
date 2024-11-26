@@ -6,6 +6,7 @@ import Jueves21Nov.Radio;
 import Viernes22Nov.TemasVistos;
 import Viernes22Nov.Cilindro;
 import Lunes25Nov.Calculator;
+import Martes26Nov.Employee;
 public class master {
 	public static void main(String[] args) {
 		Boolean flag = true;
@@ -82,6 +83,42 @@ public class master {
 						
 						
 					}while(flagS);
+				break;
+				case "6":
+					Boolean flag6 = true;
+					Employee employeeObj1 = new Employee("Joel Alcantara", 27, 500.00);
+					Employee employeeObj2 = new Employee("Martín Lutero", 20, 200.00);
+					Employee employeeObj3 = new Employee("Alejandro Martínez", 50, 1000.00);
+					employeeObj1.employeeInformation();
+					employeeObj2.employeeInformation();
+					employeeObj3.employeeInformation();
+					System.out.println("----------------------------- \n Exercise: increase Salary (Employee 1 \n)-----------------------------");
+					do {
+						employeeObj1.employeeInformation();
+						employeeObj1.increaseSalary();
+						if(employeeObj1.getSalary() >= 5000) {
+							flag6 = false;
+							System.out.println("The salary is greater or iqual than 5000");
+						}
+					}while(flag6);
+					System.out.println("---------------------- Personal Information three Employees");
+					employeeObj1.employeeInformation();
+					employeeObj2.employeeInformation();
+					employeeObj3.employeeInformation();
+					System.out.println("----------------------------- \n Exercise: is young? (Employee 2 )\n-----------------------------");
+					if(employeeObj2.isYoung()) {
+						employeeObj2.increaseSalaryYoung();
+					}
+					System.out.println("---------------------- Personal Information three Employees");
+					employeeObj1.employeeInformation();
+					employeeObj2.employeeInformation();
+					employeeObj3.employeeInformation();
+					System.out.println("----------------------------- \n Anual Salary \n-----------------------------");
+					employeeObj1.annualSalary();
+					employeeObj2.annualSalary();
+					employeeObj3.annualSalary();
+					System.out.println("----------------------------- \n Total employees \n-----------------------------");
+					Employee.gettotalEmployees();
 				break;
 				default: System.out.println("Esta opción no éxiste"); break;
 			}
