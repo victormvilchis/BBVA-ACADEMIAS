@@ -1,4 +1,4 @@
-package Lunes_24;
+package Lunes_25;
 
 public class Calculadora {
 	/*Define una clase llamada Calculadora que contenga los siguientes elementos:
