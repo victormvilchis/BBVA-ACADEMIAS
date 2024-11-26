@@ -1,5 +1,8 @@
 package Clase2;
-
+/*area lateral del cilindro 2 x PI x radio x altura.
+ * area total de un cilindro area lateral + el area de la base (2 x PI x radio al 2)
+ * volumen de un cilindro  PI x radio al cuadrado x altura
+ */
 import java.util.Scanner;
 
 public class Formula {
