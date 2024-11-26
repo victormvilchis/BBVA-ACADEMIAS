@@ -15,7 +15,7 @@ public class Main {
 		System.out.println("The interprise have " + Employee.getEmployees() + " Employees");
 		
 		Scanner sc = new Scanner(System.in);
-		String name;
+		String name, AGE, Salary;
 		Integer age;
 		Double salary;
 		Employee E1 = new Employee();
@@ -23,38 +23,96 @@ public class Main {
 		Employee E3 = new Employee();
 		
 		System.out.println("Welcome go to insert your first tree employees");
-		System.out.println("We can star for the first employee");
+		System.out.println("We can start for the first employee");
 		
 		System.out.println("Write her name");
-		name = sc.next();		
-		System.out.println("Write her age");
-		age = sc.nextInt();
-		System.out.println("Write her Salary");
-		salary = sc.nextDouble();
-		E1.Employee(name, age, salary);
+		name = sc.next();	
+		try {
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E1.Employee(name, age, salary);
+		}catch(NumberFormatException e) {
+			System.out.println("Ingresa el solo numeros");
+			
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E1.Employee(name, age, salary);
+		}
+		
+		
 		
 		System.out.println("Now Your second employee");
+		System.out.println("");
 		System.out.println("Write her name");
+		System.out.println("");
 		name = sc.next();		
-		System.out.println("Write her age");
-		age = sc.nextInt();
-		System.out.println("Write her Salary");
-		salary = sc.nextDouble();
-		E2.Employee(name, age, salary);
+		try {
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E2.Employee(name, age, salary);
+		}catch(NumberFormatException e) {
+			System.out.println("Ingresa el solo numeros");
+			
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E2.Employee(name, age, salary);
+		}
 		
 		System.out.println("Now Your third employee");
 		System.out.println("Write her name");
 		name = sc.next();		
-		System.out.println("Write her age");
-		age = sc.nextInt();
-		System.out.println("Write her Salary");
-		salary = sc.nextDouble();
-		E3.Employee(name, age, salary);
+		try {
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E3.Employee(name, age, salary);
+		}catch(NumberFormatException e) {
+			System.out.println("Ingresa el solo numeros");
+			
+			System.out.println("Write her age");
+			AGE = sc.next();
+			System.out.println("Write her Salary");
+			Salary = sc.next();
+			
+			age = Integer.parseInt(AGE);
+			salary = Double.parseDouble(Salary);
+			
+			E3.Employee(name, age, salary);
+		}
 		
 		System.out.println("Ready wait a moment");
 		
 		
-		while(E1.getSalary() <= 5000) {
+		while(E1.getSalary() < 5000) {
 			E1.setSalary(E1.getSalary() + E1.getSalary_increase());
 			System.out.println(E1.getSalary());
 			System.out.println("");
