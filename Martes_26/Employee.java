@@ -1,5 +1,7 @@
 package Martes_26;
 
+import java.util.Scanner;
+
 public class Employee {
 	
 	private String name;
@@ -15,7 +17,7 @@ public class Employee {
 		employees++;
 	}
 	
-	public Double salaryIincrease(Integer porcent, Double salary) {
+	public Double salaryIncrease(Integer porcent, Double salary) {
 		
 		salary = (salary * porcent);
 		salary = (salary / 10);
@@ -27,9 +29,35 @@ public class Employee {
 		System.out.println("The name of employe is: " + name + ", he have " + age + "years" + ", his actual salary is of " + salary);
 	}
 	
-	public void isYoung(Integer age) {
+	public void isYoung(Integer age, Double salary) {
 		if(age < 30) {
-			System.out.println("You are young");
+			Boolean flag = true;
+			
+			while(flag) {
+				System.out.println("The employee are young");
+				String porcentS;
+				Integer porcent;
+				System.out.println("The employee nubmer two is young, what porcent yo want increase in his salary?");
+				try {
+					Scanner sc = new Scanner(System.in);
+					porcentS = sc.next();
+					porcent = Integer.parseInt(porcentS);
+					
+					if(porcent < 1 || porcent > 100) {
+						System.out.println("The range of porcent must be of 1 - 100");
+						System.out.println("Try again");
+						
+						System.out.println("Write the porcent");
+						porcentS = sc.next();
+						porcent = Integer.parseInt(porcentS);
+					}else {
+						flag = false;
+					}
+					salaryIncrease(porcent, salary);
+				}catch(NumberFormatException e) {
+					System.out.println("Write just numbers");
+				}
+			}
 		}
 	}
 	
