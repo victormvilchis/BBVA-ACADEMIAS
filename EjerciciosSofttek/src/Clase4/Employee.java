@@ -1,4 +1,5 @@
 package Clase4;
+
 /*Definir la clase Employee:
 Crea una clase llamada Employee.
 Declara los siguientes campos privados:
@@ -14,7 +15,6 @@ Imprimir la información del empleado (imprimirInformacion()).
 Determinar si el empleado es joven (menor de 30 años) (esJoven()).
 Calcular el salary anual del empleado (salarioAnual()).
 Define un método estático 	() que devuelva el número total de empleados.
-Definir la clase Main:
 */
 //crear una clase 
 public class Employee {
@@ -44,7 +44,7 @@ public class Employee {
 	public void information() {
 		System.out.println("name: " + name);
 		System.out.println("age: " + age);
-		System.out.println("salary : " + salary);
+		System.out.println("salary : " + salary); 
 	}
 
 	// empleado joven
