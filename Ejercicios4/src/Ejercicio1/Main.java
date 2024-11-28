@@ -12,36 +12,39 @@ package Ejercicio1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 	public static void main(String[] args)
 	{
-		String response = "n";
+		Integer i;
 		Double[] salary = new Double[3];
 		String[] nameEmp = new String[3];
 		Integer[] age = new Integer[3];
 		Double increaseSalaryEmp2 = 0.0;
 		Scanner scanner = new Scanner(System.in);
-		while(true)
-		{
-			try
-			{
-				for(int i = 0; i < 3; i++)
+		try{
+				for(i = 0; i < 3; i++)
 				{
-					System.out.print("Please enter the name of the employee " + (i+1) +": ");
-					nameEmp[i] = scanner.next();
-					int temAge = 90;
+					String temName = " ";
+					Integer temAge = 0;
+					Double temSalary = 0.0;
 					do
-					{
-						System.out.print("Please age of the employee " + (i+1) +": ");
+					{	System.out.print("Please enter the name of the employee " + (i+1) +": ");
+						temName = scanner.next();
+						System.out.print("Please enter age of the employee " + (i+1) +": ");
 						temAge = scanner.nextInt();	
-						if(temAge >= 90 || temAge < 18)
-							System.out.println("Invalid age");
-					}while(temAge >= 90 || temAge < 18);
+						System.out.print("Please enter the salary of the employee " + (i+1) +": ");
+						temSalary = scanner.nextDouble();
+						if((temAge >= 123 || temAge < 18) || temSalary <= 0 || (nameValidate(temName) == false))
+						{
+							System.out.println("Invalid inputs");
+						}	
+					}while((temAge >= 123 || temAge < 18) || (temSalary <= 0 ) || nameValidate(temName) == false);
 					age[i] = temAge;
-					
-					System.out.print("Please enter the salary of the employee " + (i+1) +": ");
-					salary[i] = scanner.nextDouble();	
+					salary[i] = temSalary;
+					nameEmp[i] = temName;
 				}
 				
 				Employee employee1 = new Employee(nameEmp[0], age[0], salary[0]);
@@ -75,16 +78,21 @@ public class Main {
 				System.out.println(employee2.getName() + ": " + employee2.annualSalary());
 				System.out.println(employee3.getName() + ": " + employee3.annualSalary());
 				System.out.println("Employees: " + Employee.totalEmployees());
-			} catch(InputMismatchException e)
-			{
-				System.out.println("Invalid input");
-			}
-			System.out.print("Desea realizar otra operacion? n/s ");
-			response = scanner.next();
-			if(response.equals("n"))
-				break;
+		}	 	
+		catch(InputMismatchException e)
+		{
+			System.out.println("Invalid input");
+		}finally
+		{
+			scanner.close();
 		}
-		
-		scanner.close();
+	}
+	
+	public static Boolean nameValidate(String name)
+	{
+		String regExp = "^[A-Z][a-z]+(?: [A-Z][a-z] +)*$";
+		Pattern pattern = Pattern.compile(regExp);
+		Matcher mattch = pattern.matcher(name);
+		return mattch.matches();
 	}
 }
