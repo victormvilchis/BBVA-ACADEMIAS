@@ -40,7 +40,7 @@ public class Empleado {
 	
 	private final static Double SALARY_INCREMENT = 10.0;
 	
-	private static Integer contadorEmpleados = 0;
+	private static Integer countEmployee = 0;
 	
 	private final static String DECIMAL_FORMAT_TWO = "%.2f";
 	private final static Double LIMIT = 5000.00;
@@ -50,22 +50,24 @@ public class Empleado {
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
-		contadorEmpleados++;
+		countEmployee++;
 	}
 	
 	
 	
 	public static Integer getTotalEmployee() {
-		return contadorEmpleados;
+		return countEmployee;
 	}
 	
 	//Métodos
 	public Double increaseSalary(Double percentage) {
-		return (this.salary += this.salary * (percentage / 100.0)); 
+		/*System.out.println("\nPercentage: " + percentage);
+		System.out.println(this.salary * (percentage / 100.0));*/
+		return (this.salary += this.salary * (percentage / 100.0));
 	}
 	
 	public void printInfo() {
-		System.out.println("\nHello, my name is " + name + " and I´m " + age + " years old.");
+		System.out.println("\nHello, my name is " + name + " and I´m " + age + " years old." + " My Salary is " + "$ " + salary);
 	}
 	
 	public boolean isYoung() {
@@ -77,6 +79,7 @@ public class Empleado {
 	}
 	
 	public static void main(String[] args) {
+		//Boolean continuar = true;
 		Scanner sc = new Scanner(System.in);
 		
 		try {
@@ -106,14 +109,24 @@ public class Empleado {
 			
 			System.out.println("\nTotal Count Employee: " + Empleado.getTotalEmployee());*/
 			
-			System.out.print("Enter total employee: ");
-			Integer total = sc.nextInt();
-			sc.nextLine();
+			Integer total;
+			while(true) {
+				System.out.print("Enter total employee: ");
+				total = sc.nextInt();
+				sc.nextLine();
+				if(total > 0 && total <= 10) {
+					break;
+				}
+				else {
+					System.out.print("Error, total must be positive and greater than cero and less than limit, ");
+				}
+				
+			}
 						
 			//Arreglo para contener a los empleados que voy a almacenar
 			Empleado[] activeEmployee = new Empleado[total];
 			
-			for (int a = 0; a < total; a++) {
+			for (Integer a = 0; a < total; a++) {
 				System.out.println("\nEnter data of Employee N° " + (a+1) + " :");
 				String nameIn;
 				Integer ageIn;
@@ -122,25 +135,31 @@ public class Empleado {
 				while(true) {
 					System.out.print("Enter Name: ");
 					nameIn = sc.nextLine();
-					if(nameIn.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+"))
+					if(nameIn.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && nameIn.length() > 2)
 						break;
 					else 
-						System.out.print("Error, Only Letters, Enter Name: ");
+						System.out.print("Error, must be Letters and greater than two, ");
 				}
 				
 				while(true){
 					System.out.print("Enter Age: ");
 					ageIn = sc.nextInt();
-					if(ageIn >= 18) {
+					if(ageIn >= 18 && ageIn <= 80) {
 						break;
 					} else {
-						System.out.print("Error, Under-age, Enter Age: ");
+						System.out.print("Error, Under-age or Limit-age, ");
 					}
 				}
-
 				
-				System.out.print("Enter Monthly Salary: ");
-				salaryIn = sc.nextDouble();
+				while(true) {
+					System.out.print("Enter Monthly Salary: ");
+					salaryIn = sc.nextDouble();
+					if(salaryIn > 0) {
+						break;
+					} else {
+						System.out.print("Error, Salary must be positive and greater than cero, ");
+					}
+				}
 				
 				sc.nextLine();
 				
@@ -158,7 +177,7 @@ public class Empleado {
 			if(activeEmployee.length > 0) {
 				do {
 					activeEmployee[0].increaseSalary(SALARY_INCREMENT);
-					System.out.print("\nUpdated Salary of " + activeEmployee[0].name + " : " + "$ " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[0].salary) + "\n");
+					System.out.print("\nUpdated Salary of " + activeEmployee[0].name + " : " + "$ " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[0].salary));
 				} while(activeEmployee[0].salary < LIMIT);
 			}
 			
@@ -166,26 +185,26 @@ public class Empleado {
 			if(activeEmployee.length > 1) {
 				if(activeEmployee[1].isYoung()) {
 					activeEmployee[1].printInfo();
-					System.out.println("New Salary: " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[1].increaseSalary(SALARY_INCREMENT)));
+					System.out.println("New Salary: " + "$ " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[1].increaseSalary(SALARY_INCREMENT)));
 				} else {
 					activeEmployee[1].printInfo();
-					System.out.println("Not Young: " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[1].salary));
+					System.out.println("Not Young: " + "$ " + String.format(DECIMAL_FORMAT_TWO, activeEmployee[1].salary));
 				}
 			}
 			
 			//Salarios anuales
 			System.out.println("\nAll anual salaries: ");
 			for (Empleado emp: activeEmployee) {
-				System.out.println("Employee " +  emp.name + " : " + String.format(DECIMAL_FORMAT_TWO, emp.yearSalary()));
+				System.out.println("Employee " +  emp.name + " : " + "$ " + String.format(DECIMAL_FORMAT_TWO, emp.yearSalary()));
 			}
 			
 			System.out.println("\nTotal Employees: " + Empleado.getTotalEmployee());
 			
 			
-		} catch (InputMismatchException | NumberFormatException | NegativeArraySizeException | ArrayIndexOutOfBoundsException e) {
+		} catch (InputMismatchException | NumberFormatException | NegativeArraySizeException | ArrayIndexOutOfBoundsException | OutOfMemoryError e) {
 			System.out.println(ERR_MSG_INPUT + e);
 		}
-		
+
 		sc.close();
 
 	}
