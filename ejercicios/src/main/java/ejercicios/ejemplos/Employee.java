@@ -57,6 +57,7 @@ public class Employee {
 		System.out.println("Name: " + name);
 		System.out.println("Age: " + age);
 		System.out.println("Salary: " + salary);
+		System.out.println("Anual Salary: " + annualSalary());
 	}
 
 	// METODO PARA VERIFICAR QUE EL EMPLEADO ES JOVEN
@@ -88,7 +89,7 @@ public class Employee {
 				System.out.print("Enter age: ");
 				int age = Integer.parseInt(scanner.nextLine());
 
-				if (age <= 0) {
+				if (age <= 0 || age >= 100) {
 					System.out.println("Invalid age.");
 					continue;
 				}
@@ -103,9 +104,7 @@ public class Employee {
 
 				return new Employee(name, age, salary);
 			} catch (NumberFormatException e) {
-				System.out.println("Invalid input");
-			} catch (Exception e) {
-				System.out.println("Invalid input.");
+				System.out.println("An error has occurred");
 			}
 		}
 	}
@@ -138,12 +137,6 @@ public class Employee {
 					employee1.printInformation();
 				} while (employee1.salary < 5000);
 
-				// IMPRIMIR INFORMACON DE LOS EMPLEADOS
-				System.out.println("Employee Information: ");
-				employee1.printInformation();
-				employee2.printInformation();
-				employee3.printInformation();
-
 				// VERIFICA SI EL EMPLEADO 2 ES JOVEN
 				if (employee2.isYoung()) {
 					employee2.increaseSalary(10.0);
@@ -152,14 +145,25 @@ public class Employee {
 				}
 
 				// SALARIO ANUAL DE LOS EMPLEADOS
-				System.out.println("Annual Salaries:");
+				System.out.println("-------Annual Salaries-------");
 				System.out.println("Employee 1 Annual Salary: " + employee1.annualSalary());
 				System.out.println("Employee 2 Annual Salary: " + employee2.annualSalary());
 				System.out.println("Employee 3 Annual Salary: " + employee3.annualSalary());
+				System.out.println("------------------------------");
 
 				// IMPRIME TOTAL DE EMPLEADOS
 				System.out.println("Total Employees: " + getTotalEmployees());
+				System.out.println("------------------------------");
 
+				// IMPRIMIR INFORMACiON DE LOS EMPLEADOS
+				System.out.println("-----Employees Information-----");
+				employee1.printInformation();
+				System.out.println("------------------------------");
+				employee2.printInformation();
+				System.out.println("------------------------------");
+				employee3.printInformation();
+				System.out.println("------------------------------");
+				break;
 			} catch (Exception e) {
 				System.out.println("An error has occurred");
 			} finally {
