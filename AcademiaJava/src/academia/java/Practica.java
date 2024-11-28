@@ -1,18 +1,12 @@
 package academia.java;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 //import java.util.InputMismatchException;
 
 public class Practica {
 
 	public static void main(String[] args) {
-		int a = 0b000111;
-		int b = 000_111;
-		System.out.println(a + " " + b);
-		//StringBuilder s = new StringBuilder(10 + 2 + "ABC" + 4 + 5);
-		//s.append(s.delete(3,6));
-		//System.out.println(s);
-		//Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		// try {
 //	            System.out.print("Introduce el radio del cilindro: ");
 //	            double radio = scanner.nextDouble();
@@ -71,7 +65,11 @@ public class Practica {
 //		System.out.println("Área total del cilindro: " + areaTotal);
 //		System.out.println("Volumen del cilindro: " + volumen);
 //        scanner.close();
-//   
+//        
+        System.out.println("Result : " + 5 + 25);
+        System.out.println("Result : " + (5 + 25));
+        System.out.println("Result : " + 2 + 3 + 5);
+        System.out.println("Result : " + 2 + 3 * 5);
 
 	}
 }

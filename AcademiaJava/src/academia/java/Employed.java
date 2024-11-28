@@ -1,17 +1,18 @@
 package academia.java;
-public class Employed {
 
+public class Employed {
 	private String name;
 	private Integer age;
 	private Double salary;
     private static final Double increment_salary = 10.0;
 	private static Integer count_employed = 0;
 	
-	//constructor parametrizado, name
+	//constructor, name
 	public  Employed(String name, Integer age, Double salary){
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
+		//contador 
 		count_employed ++;
 	}
 	//Aumentar el salario en un porcentaje dado (aumentarSalario()).
@@ -58,9 +59,10 @@ public class Employed {
 		System.out.println("Employee 3's name is " + employ3.name + " his age is " + employ3.age + " and his salary is " + employ3.salary);
 
 		do {
-			System.out.println("the salary before the increment is ");
+			//el salario antes del incremento al empleado1
+			//System.out.println("the salary before the increment is " + increment_salary);
 			employ1.incrementSalary(increment_salary); 
-		} while (employ1.salary<5000);
+		} while (employ1.salary <5000);
 	
 	
 		// Verifica si el segundo empleado es joven y, si lo es, aumenta su salario en un 10%.
